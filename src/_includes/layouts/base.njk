@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | DRS Schulbegleitung</title>
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/scripts.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/#about">Über uns</a></li>
+                <li><a href="/#goals">Unsere Ziele</a></li>
+                <li><a href="/#arbeitsweise">Arbeitsweise</a></li>
+                <li><a href="/#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {{ content | safe }}
+    </main>
+
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-info">
+                <h4>Das Relationship</h4>
+                <p>Jonathan Makkonen und Janine Förster und Kemal Aydemir Schulbegleitung GbR</p>
+            </div>
+            <div class="footer-links">
+                <a href="/impressum">Impressum</a>
+                <span class="footer-divider">|</span>
+                <a href="/datenschutz">Datenschutzerklärung</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; {{ page.date.getFullYear() }} Das Relationship. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,380 @@
+:root {
+  --primary-color: #8cbae9;
+  --primary-dark: #6a9ed8;
+  --text-color: #333333;
+  --background-light: #f5f8fc;
+  --gradient-start: #8cbae9;
+  --gradient-end: #6a9ed8;
+  --card-hover-shadow: rgba(140, 186, 233, 0.2);
+}
+
+// Global styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: linear-gradient(135deg, var(--background-light) 0%, #ffffff 100%);
+  padding-top: 40px;
+}
+
+// Global link styles
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    color: var(--primary-dark);
+  }
+}
+
+// Update contact-link definition
+.contact-link {
+  display: inline-block;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  transition: 
+    -webkit-transform 0.3s ease, // Add Webkit prefix
+    transform 0.3s ease,
+    color 0.3s ease;
+  
+  &:hover {
+    color: var(--primary-dark);
+    -webkit-transform: translateX(4px) translateZ(0); // Add 3D transform hack
+    transform: translateX(4px) translateZ(0); // Force hardware acceleration
+  }
+}
+
+// Header styles
+header {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+
+  nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+
+      a {
+        color: var(--text-color);
+        font-weight: 500;
+        padding: 0.8rem 1.5rem;
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+          opacity: 0;
+          transition: opacity 0.4s ease;
+          z-index: -1;
+          border-radius: 8px;
+        }
+
+        &:hover {
+          color: white;
+          transform: none;
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Hero sections
+.hero, .legal-hero {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  color: white;
+  padding: 8rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.866-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+}
+
+.legal-hero {
+  padding: 8rem 2rem 4rem;
+  margin-bottom: 2rem;
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    
+    a, span {
+      color: white;
+    }
+
+    a {
+      opacity: 0.9;
+      
+      &:hover {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    
+    span {
+      opacity: 0.7;
+    }
+  }
+}
+
+// Content sections
+.content-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+// Card styles
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(140, 186, 233, 0.1);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px var(--card-hover-shadow);
+  }
+}
+
+.main-card {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+// Legal content styles
+.legal-card {
+  .legal-content {
+    h2, h3 {
+      color: var(--primary-dark);
+      position: relative;
+      padding-bottom: 0.8rem;
+      margin: 2rem 0 1.5rem;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+        border-radius: 2px;
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 3rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    h3 {
+      font-size: 1.6rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: var(--text-color);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    ul, ol {
+      margin: 1rem 0 1.5rem 1.5rem;
+      list-style-type: disc;
+
+      li {
+        margin-bottom: 0.8rem;
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+    }
+
+    a {
+      @extend .contact-link;
+      // Add explicit position to override any inherited styles
+      position: relative;
+    }
+  }
+}
+
+// Contact section styles
+.contact-wrapper {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.contact-details {
+  background: linear-gradient(135deg, rgba(140, 186, 233, 0.1), rgba(106, 158, 216, 0.1));
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+
+  h4 {
+    color: var(--primary-dark);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+  }
+}
+
+.contact-form {
+  margin-top: 2rem;
+  
+  iframe {
+    width: 100%;
+    border: none;
+  }
+}
+
+// Footer styles
+.footer {
+  background: white;
+  border-top: 1px solid rgba(140, 186, 233, 0.2);
+  padding: 3rem 0;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.footer-info {
+  h4 {
+    color: var(--primary-dark);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #666;
+    font-size: 1rem;
+  }
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  a {
+    font-size: 0.9rem;
+    
+    &:hover {
+      transform: translateX(4px);
+    }
+  }
+
+  .footer-divider {
+    color: #ccc;
+  }
+}
+
+.footer-copyright {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+// Media queries
+@media (max-width: 768px) {
+  header nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    padding: 2rem 0;
+  }
+
+  .footer-content {
+    padding: 0 1rem;
+  }
+}

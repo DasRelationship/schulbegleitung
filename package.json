@@ -1,0 +1,24 @@
+{
+  "name": "drs-schulbegleitung",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "watch:eleventy": "eleventy --serve",
+    "watch:sass": "sass --watch src/css:_site/css",
+    "build:sass": "sass src/css:_site/css",
+    "build:eleventy": "eleventy",
+    "start": "npm-run-all --parallel watch:*",
+    "build": "npm-run-all build:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.86.0"
+  }
+}
